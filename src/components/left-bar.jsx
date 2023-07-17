@@ -1,4 +1,5 @@
 import '../css/style.css'
+import { useState } from 'react'
 import logo from '../img/logo.png'
 
 const Insignia = (
@@ -7,13 +8,6 @@ const Insignia = (
     </div>
 );
 
-const Burger = (
-    <div className="nav__burger burger">
-        <span className="burger__line"/>
-        <span className="burger__line"/>
-        <span className="burger__line"/>
-    </div>
-);
 
 const NavMenu = (
     <div className="nav__menu menu">
@@ -26,13 +20,33 @@ const NavMenu = (
 );
 
 function RenderLeftBar() {
+    const [visible, close] = useState(false)
+    const changeState = () => close(!visible)
+  
+    const onEnter = (event) => {
+      if (event.key === 'Enter') {
+        changeState()
+      }
+    }
+  
     return (
-        <nav className="main__nav nav">
-            {Insignia}
-            {Burger}
-            {NavMenu}
-        </nav>
+      <nav className="main__nav nav">
+        {Insignia}
+        <div
+          role="button"
+          tabIndex={0}
+          onKeyDown={onEnter}
+          onClick={changeState}
+          className="nav__burger burger"
+        >
+          <span className="burger__line" />
+          <span className="burger__line" />
+          <span className="burger__line" />
+        </div>
+  
+        {visible && NavMenu}
+      </nav>
     )
-};
-
-export default RenderLeftBar;
+  }
+  
+  export default RenderLeftBar;
