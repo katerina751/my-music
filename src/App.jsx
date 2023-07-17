@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import RenderLeftBar from './components/left-bar'
+import RenderCenter from './components/center'
+import RenderRightBar from './components/right-bar'
+import RenderPlayerBelow from './components/player-below'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <main className="main">
+          <RenderLeftBar />
+          <RenderCenter />
+          <RenderRightBar />
+        </main>
+        <div className="bar">
+          <RenderPlayerBelow />
+        </div>
+        <footer className="footer" />
+      </div>
     </div>
   );
 }
