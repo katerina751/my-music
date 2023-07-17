@@ -1,11 +1,10 @@
 import '../css/style.css'
-import iconSearch from '../img/icon/search.svg'
-import iconWatch from '../img/icon/watch.svg'
+import sprite from '../img/icon/sprite.svg'
 
 const Search = (
     <div className="centerblock__search search">
         <svg className="search__svg">
-            <use xlinkHref="http://" src={iconSearch} />
+            <use xlinkHref={`${sprite}#icon-search`} />
         </svg>
         <input className="search__text" type="search" placeholder="Поиск" name="search"/>
     </div>
@@ -27,7 +26,7 @@ const PlayListTitle = (
         <div className="playlist-title__col col03">АЛЬБОМ</div>
         <div className="playlist-title__col col04">
             <svg className="playlist-title__svg" alt="time">
-                <use xlinkHref="http://" src={iconWatch} />
+                <use xlinkHref={`${sprite}#icon-watch`} />
             </svg>
         </div>
     </div>
